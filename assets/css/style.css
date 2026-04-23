@@ -1,12 +1,12 @@
 :root {
-  --color-principal: #5E7288;
-  --color-secundario: #8A949E;
-  --color-fondo: #F3F4F6;
-  --color-fondo-alt: #E7EAEE;
-  --color-texto: #22252A;
-  --color-texto-suave: #5F6670;
-  --color-acento: #C89B5A;
-  --color-blanco: #FFFFFF;
+  --color-principal: #5e7288;
+  --color-secundario: #8a949e;
+  --color-fondo: #f3f4f6;
+  --color-fondo-alt: #e7eaee;
+  --color-texto: #22252a;
+  --color-texto-suave: #5f6670;
+  --color-acento: #c89b5a;
+  --color-blanco: #ffffff;
 }
 
 * {
@@ -125,7 +125,6 @@ section h2 {
   opacity: 0.28;
   display: block;
   animation: estrellaLarga 13s ease-in-out infinite;
- 
 }
 
 .estrellas-fondo {
@@ -179,10 +178,9 @@ section h2 {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0;
+  justify-content: center;
+  gap: 40px;
   padding: 80px 0;
-  position: relative;
 }
 
 .inicio-info {
@@ -212,7 +210,7 @@ section h2 {
 
 .inicio-contacto p {
   font-size: 1rem;
-  line-height: 1.0;
+  line-height: 1;
   color: var(--color-texto-suave);
   margin-bottom: 4px;
 }
@@ -248,8 +246,7 @@ section h2 {
 
   .inicio-info,
   .inicio-imagen {
-    width: 100%;
-    margin-right: 0;
+    flex: 1;
   }
 
   .inicio-texto h2 {
@@ -258,7 +255,10 @@ section h2 {
   }
 
   .inicio-imagen {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    margin-right: 0;
   }
 }
 @keyframes estrellaLarga {
@@ -312,24 +312,12 @@ p {
   padding: 80px 50px;
 }
 
-.franja-caminata {
-  margin-top: -200px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.franja-caminata img {
-  width: 92%;
-  max-width: 1100px;
-  height: auto;
-  display: block;
-  opacity: 0.75;
-}
-
 #proyectos {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .mural-fondo {
@@ -337,28 +325,31 @@ p {
   height: auto;
   display: block;
   pointer-events: none;
+  z-index: 1;
 }
 
 .proyectos-mural {
-  position: relative;
-  width: 100%;
   max-width: 1100px;
-  margin: 20px auto 0;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("assets/img/muralfinalfinal1.png") no-repeat center/contain;
+  position: relative;
+  padding: 40px 0;
 }
 
 .miniaturas-grid {
-  position: absolute;
-  top: 33%;
-  left: 50%;
-  transform: translateX(-50%);
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(2, 92px);
-  column-gap: 28px;
-  row-gap: 9px;
+  gap: 28px 9px;
   justify-content: center;
-  align-content: center;
-  width: fit-content;
+  align-items: center;
+  position: relative;
+  z-index: 6;
+  margin: 0 auto;
 }
 
 .miniatura {
@@ -367,12 +358,14 @@ p {
   justify-content: center;
   transition: transform 0.3s ease;
   position: relative;
+  z-index: 6;
 }
 
 .icono-pdf {
   width: 60px;
   height: auto;
   display: block;
+  z-index: 6;
 }
 
 .miniatura:hover {
@@ -386,37 +379,15 @@ p {
     grid-template-rows: repeat(2, 50px);
     column-gap: 20px;
     row-gap: 8px;
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
-}
 
   .icono-pdf {
     width: 50px;
   }
-
-.sidebar {
-  width: 300px;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: linear-gradient(180deg, #e7eaee, #cfd6dd);
-  padding: 40px 25px;
-  display: flex;
-  align-items: center;
-  z-index: 2;
 }
-
-.contenido {
-  margin-left: 300px;
-  width: calc(100% - 300px);
-  z-index: 2;
-  position: relative;
-}
-
-  .icono-pdf {
-    width: 50px;
-  }
-
 
 .miniatura::after {
   content: attr(data-title);
@@ -460,11 +431,13 @@ p {
 }
 
 #contacto {
-  text-align: center;
-  padding-top: 120px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  padding: 80px 0;
 }
 
 a {
@@ -477,10 +450,9 @@ a:hover {
 }
 
 .footer {
-  margin-left: 0px;
-  width: calc(100% - 300px);
+  width: 100%;
   text-align: center;
-padding: 0 0 20px;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
 }
@@ -488,6 +460,6 @@ padding: 0 0 20px;
 .footer p {
   font-size: 0.95rem;
   color: var(--color-texto-suave);
-  margin-bottom: 0;
-  margin-top: 200px;
+  margin: 20px 0 0;
+  text-align: center;
 }
